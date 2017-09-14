@@ -6,9 +6,10 @@ import TodoListItem from './TodoListItem';
 export default class TodoList extends React.Component {
 
     renderItems(){
+        const props = _.omit(this.props, 'todos'); // leave out the todos props
         return (
             _.map(this.props.todos, (todo, index)=>
-                <TodoListItem key={index} {...todo} />)
+                <TodoListItem key={index} {...todo} {...props} />)
         )
     }
     render() {
